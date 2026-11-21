@@ -1,18 +1,77 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>준비 중</title>
-  <style>
-    body { font-family: sans-serif; margin: 40px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>잃어버린 것, 주운 것 — 축제 분실물 후보 찾기 (예시)</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>준비 중입니다</h1>
-  <p>발표자료 예시용 데모 서비스를 올리는 중입니다.</p>
-  <script>
-    function check(x) { return [x, { k: "v" }]; }
-  </script>
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand">
+      <h1>잃어버린 것, 주운 것</h1>
+      <p class="sub">축제 분실물 후보 찾기 <span class="badge">예시 서비스</span><span class="badge badge-line">가상 데이터</span></p>
+    </div>
+    <p class="one-line"><strong>축제 운영본부 안내 담당자</strong>가, <strong>분실 신고를 받는 순간</strong>에, <strong>습득물 대장을 한 줄씩 넘겨 보는 일</strong>을 덜 하게 됩니다.</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <section class="col-left">
+    <form class="card" id="search-form" autocomplete="off">
+      <label for="desc" class="form-label">분실물 묘사</label>
+      <p class="hint">신고자가 말한 그대로 적어 주세요.</p>
+      <textarea id="desc" rows="3" maxlength="300" placeholder="예: 검은 지갑에 곰돌이 열쇠고리"></textarea>
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary" id="go">후보 찾기</button>
+        <button type="button" class="btn btn-quiet" id="clear">지우기</button>
+      </div>
+      <p class="examples"><span class="hint">눌러서 넣어 보기</span>
+        <button type="button" class="example" data-text="검은 지갑에 곰돌이 열쇠고리">검은 지갑에 곰돌이 열쇠고리</button>
+        <button type="button" class="example" data-text="지갑">지갑</button>
+        <button type="button" class="example" data-text="드론">드론</button>
+      </p>
+    </form>
+
+    <div class="card promises">
+      <h2>이 서비스가 지키는 것</h2>
+      <ol>
+        <li>같은 물건이라고 단정하지 않고 <strong>후보로만</strong> 보여 줍니다.</li>
+        <li><strong>본인 확인 전</strong>에는 내주라고 안내하지 않습니다.</li>
+        <li>묘사에 <strong>없는 특징을 덧붙이지 않습니다.</strong></li>
+      </ol>
+      <p class="hint">점수를 매기거나 자동으로 정하지 않습니다. 정하는 일은 담당자가 단추를 눌러서 합니다.</p>
+    </div>
+  </section>
+
+  <section class="col-right" id="results" aria-live="polite" data-state="idle">
+    <p class="idle">묘사를 적고 ‘후보 찾기’를 누르면 여기에 후보가 나옵니다.</p>
+  </section>
+</main>
+
+<section class="wrap">
+  <details class="card ledger">
+    <summary>습득물 대장 전체 보기 (가상 데이터 <span id="ledger-count"></span>건)</summary>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>번호</th><th>종류</th><th>묘사</th><th>습득 장소</th><th>습득 시각</th><th>보관 위치</th></tr></thead>
+        <tbody id="ledger-rows"></tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<footer class="wrap foot">
+  <p><strong>자료 출처</strong> 습득물 대장은 운영진이 지어낸 가상 데이터입니다. 실제 축제·사람·물건과 관계없습니다.</p>
+  <p><strong>검색 방법</strong> 이 브라우저 안에서 도는 문장 유사도 검색입니다. 생성형 AI를 부르지 않으며, 입력한 내용은 어디로도 전송되지 않습니다.</p>
+  <p><strong>모의 기능</strong> 분실 신고 접수와 인계 기록은 모의입니다. 실제로 저장·전송되지 않습니다.</p>
+  <p class="hint">AI활용 의성군 서비스 개선 공모제안 경진대회 · 발표자료 예시용 서비스 (본선 과제가 아닌 예시용 과제) · 예시팀(운영진 제작)</p>
+</footer>
+
+<script src="found-items.js" charset="utf-8"></script>
+<script src="app.js" charset="utf-8"></script>
 </body>
 </html>
